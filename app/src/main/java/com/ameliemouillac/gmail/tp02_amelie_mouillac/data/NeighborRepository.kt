@@ -12,6 +12,8 @@ class NeighborRepository {
 
     fun deleteNeighbor(neighbor: Neighbor) = dataSource.deleteNeighbor(neighbor)
 
+    fun createNeighbor(neighbor: Neighbor) = dataSource.createNeighbor(neighbor)
+
     companion object {
         private var instance: NeighborRepository? = null
         // On crée un méthode qui retourne l'instance courante du repository si elle existe ou en crée une nouvelle sinon

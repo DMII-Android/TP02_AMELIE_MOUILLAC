@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.NavigationListener
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.adapters.ListNeighborHandler
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.adapters.ListNeighborsAdapter
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.data.NeighborRepository
@@ -37,7 +38,16 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
                         DividerItemDecoration.VERTICAL
                 )
         )
+        addNeighborEvent()
         return binding.root
+    }
+
+    fun addNeighborEvent() {
+        binding.addNeighbor.setOnClickListener(View.OnClickListener {
+            (activity as? NavigationListener)?.let {
+                it.showFragment(AddNeighbourFragment())
+            }
+        })
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

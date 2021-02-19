@@ -5,9 +5,10 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.databinding.ActivityMainBinding
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.databinding.ListNeighborsFragmentBinding
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.fragments.AddNeighbourFragment
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.fragments.ListNeighborsFragment
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NavigationListener {
 
     var binding: ActivityMainBinding? = null
 
@@ -18,10 +19,14 @@ class MainActivity : AppCompatActivity() {
         changeFragment(ListNeighborsFragment())
     }
 
-    private fun changeFragment(fragment: Fragment) {
+    fun changeFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.fragment_container, fragment)
             addToBackStack(null)
         }.commit()
+    }
+
+    override fun showFragment(fragment: Fragment) {
+        changeFragment(fragment)
     }
 }
