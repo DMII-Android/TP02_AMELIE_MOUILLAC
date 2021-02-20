@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TP02_AMELIE_MOUILLAC</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="say_yes">Yes</string>
+    <string name="say_no">No</string>
+
+    <string name="was_deleted">was deleted</string>
+    <string name="wasnt_deleted">was\'nt deleted</string>
+    <string name="was_created">was created</string>
+    <string name="wasnt_created">was\'nt created</string>
+
+    <string name="list_fragment_title">My neighbors</string>
+    <string name="list_fragment_add_person_button_description">Add person button</string>
+    <string name="list_fragment_msg_delete_validation_title">Validation</string>
+    <string name="list_fragment_msg_delete_validation">Do you want to delete this neighbor ?</string>
+
+    <string name="add_fragment_image_view_description">Person image</string>
+    <string name="add_fragment_image_hint">Image</string>
+    <string name="add_fragment_name_hint">Name</string>
+    <string name="add_fragment_phone_hint">Phone number</string>
+    <string name="add_fragment_website_hint">Website</string>
+    <string name="add_fragment_adress_hint">Adress</string>
+    <string name="add_fragment_about_hint">About me</string>
+    <string name="add_fragment_validate_button">Record</string>
+
+</resources>
