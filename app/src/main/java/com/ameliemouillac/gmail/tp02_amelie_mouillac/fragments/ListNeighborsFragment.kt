@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.NavigationListener
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.R
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.adapters.ListNeighborHandler
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.adapters.ListNeighborsAdapter
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.data.NeighborRepository
@@ -60,17 +61,17 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
 
     override fun onDeleteNeighbor(neighbor: Neighbor) {
         val builder = AlertDialog.Builder(context!!)
-        builder.setTitle("Confirmation")
-        builder.setMessage("Voulez-vous supprimer ce voisin ?")
-            .setPositiveButton("Oui",
+        builder.setTitle(R.string.list_fragment_msg_delete_validation_title)
+        builder.setMessage(R.string.list_fragment_msg_delete_validation)
+            .setPositiveButton(R.string.say_yes,
                 DialogInterface.OnClickListener { dialog, id ->
-                    Toast.makeText(context, "yes", Toast.LENGTH_LONG).show()
                     NeighborRepository.getInstance().deleteNeighbor(neighbor)
                     binding.neighborsList.adapter?.notifyDataSetChanged()
+                    Toast.makeText(context, neighbor.name + R.string.was_deleted, Toast.LENGTH_LONG).show()
                 })
-            .setNegativeButton("Non",
+            .setNegativeButton(R.string.say_no,
                 DialogInterface.OnClickListener { dialog, id ->
-                    Toast.makeText(context, "nope", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, neighbor.name + R.string.wasnt_deleted, Toast.LENGTH_LONG).show()
                 })
         // Create the AlertDialog object and return it
         builder.create().show()

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.afollestad.vvalidator.form
-import com.ameliemouillac.gmail.tp02_amelie_mouillac.MainActivity
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.R
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.data.NeighborRepository
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.databinding.AddNeighborBinding
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.models.Neighbor
@@ -66,7 +66,7 @@ class AddNeighbourFragment : Fragment() {
                     binding.website.text.toString()
                 )
                 NeighborRepository.getInstance().createNeighbor(neighbor)
-                Toast.makeText(context, "neighbor created", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, binding.name.text.toString() + R.string.was_created, Toast.LENGTH_LONG).show()
             }
         }.validate()
 

@@ -21,8 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:src="@drawable/ic_person"
+        android:src="@drawable/ic_person_add"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/list_fragment_add_person_button_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

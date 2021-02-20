@@ -1,5 +1,27 @@
 <resources>
     <string name="app_name">TP02_AMELIE_MOUILLAC</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="say_yes">Oui</string>
+    <string name="say_no">Non</string>
+
+    <string name="was_deleted">a bien été supprimé(e)</string>
+    <string name="wasnt_deleted">n\'a pas été supprimé(e)</string>
+    <string name="was_created">a bien été ajouté(e)</string>
+    <string name="wasnt_created">n\'a pas été ajouté(e)</string>
+
     <string name="list_fragment_title">Mes voisins</string>
+    <string name="list_fragment_add_person_button_description">Add person button</string>
+    <string name="list_fragment_msg_delete_validation_title">Confirmation</string>
+    <string name="list_fragment_msg_delete_validation">Voulez-vous supprimer ce voisin ?</string>
+
+    <string name="add_fragment_image_view_description">Person image</string>
+    <string name="add_fragment_image_hint">Image</string>
+    <string name="add_fragment_name_hint">Nom</string>
+    <string name="add_fragment_phone_hint">Téléphone</string>
+    <string name="add_fragment_website_hint">Website</string>
+    <string name="add_fragment_adress_hint">Adresse</string>
+    <string name="add_fragment_about_hint">A propos de moi</string>
+    <string name="add_fragment_validate_button">Enregistrer</string>
+
 </resources>
