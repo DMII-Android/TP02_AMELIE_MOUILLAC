@@ -10,13 +10,18 @@ import com.ameliemouillac.gmail.tp02_amelie_mouillac.fragments.ListNeighborsFrag
 
 class MainActivity : AppCompatActivity(), NavigationListener {
 
-    var binding: ActivityMainBinding? = null
+    lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding!!.root)
-        changeFragment(ListNeighborsFragment())
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+
+        showFragment(ListNeighborsFragment())
+        updateTitle(R.string.list_fragment_title)
+        TODO("Changer le titre de la toolbar dans les fragments")
     }
 
     fun changeFragment(fragment: Fragment) {
@@ -28,5 +33,9 @@ class MainActivity : AppCompatActivity(), NavigationListener {
 
     override fun showFragment(fragment: Fragment) {
         changeFragment(fragment)
+    }
+
+    override fun updateTitle(title: Int) {
+        binding.toolbar.setTitle(title)
     }
 }

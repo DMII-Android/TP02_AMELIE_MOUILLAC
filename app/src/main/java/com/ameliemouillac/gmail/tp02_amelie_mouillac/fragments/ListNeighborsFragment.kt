@@ -39,6 +39,7 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
                 )
         )
         addNeighborEvent()
+
         return binding.root
     }
 

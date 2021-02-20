@@ -1,21 +1,20 @@
 package com.ameliemouillac.gmail.tp02_amelie_mouillac.fragments
 
 import android.os.Bundle
-import android.util.Log
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.afollestad.vvalidator.form
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.MainActivity
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.data.NeighborRepository
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.databinding.AddNeighborBinding
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.models.Neighbor
 import java.util.*
 
 class AddNeighbourFragment : Fragment() {
-    lateinit var binding: AddNeighborBinding
+    private lateinit var binding: AddNeighborBinding
 
     /**
      * Fonction permettant de définir une vue à attacher à un fragment
@@ -28,11 +27,12 @@ class AddNeighbourFragment : Fragment() {
         binding = AddNeighborBinding.inflate(inflater, container, false)
 
         onValidateClick()
+        TODO("Améliorer la validation du formulaire")
 
         return binding.root
     }
 
-    fun onValidateClick() {
+    private fun onValidateClick() {
         form {
             input(binding.name) {
                 isNotEmpty()
