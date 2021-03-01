@@ -28,7 +28,6 @@ class AddNeighbourFragment : Fragment() {
         binding = AddNeighborBinding.inflate(inflater, container, false)
 
         onValidateClick()
-        TODO("Améliorer la validation du formulaire")
 
         return binding.root
     }
@@ -38,9 +37,10 @@ class AddNeighbourFragment : Fragment() {
             input(binding.name) {
                 isNotEmpty()
             }
+            /*
             input(binding.image) {
                 isNotEmpty()
-            }
+            }*/
             input(binding.adress) {
                 isNotEmpty()
             }
@@ -51,9 +51,10 @@ class AddNeighbourFragment : Fragment() {
                 isNotEmpty()
                 length().atMost(30)
             }
+            /*
             input(binding.website) {
                 isNotEmpty()
-            }
+            }*/
 
             submitWith(binding.validateNeighbor) { result ->
                 var neighbor = Neighbor(
