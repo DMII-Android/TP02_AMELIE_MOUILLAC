@@ -1,7 +1,6 @@
 package com.ameliemouillac.gmail.tp02_amelie_mouillac.adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.R
@@ -11,8 +10,8 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
 class ListNeighborsAdapter(
-        items: List<Neighbor>,
-        val listNeighborHandler: ListNeighborHandler
+    items: List<Neighbor>,
+    private val listNeighborHandler: ListNeighborHandler
 ) : RecyclerView.Adapter<ListNeighborsAdapter.ViewHolder>() {
 
     private val mNeighbours: List<Neighbor> = items
@@ -32,12 +31,12 @@ class ListNeighborsAdapter(
         val context = holder.viewBinding.root.context
         // Display Neighbour Avatar
         Glide.with(context)
-                .load(neighbor.avatarUrl)
-                .apply(RequestOptions.circleCropTransform())
-                .placeholder(R.drawable.ic_person)
-                .error(R.drawable.ic_person)
-                .skipMemoryCache(false)
-                .into(itemViewHolder.viewBinding.itemListAvatar)
+            .load(neighbor.avatarUrl)
+            .apply(RequestOptions.circleCropTransform())
+            .placeholder(R.drawable.ic_person)
+            .error(R.drawable.ic_person)
+            .skipMemoryCache(false)
+            .into(itemViewHolder.viewBinding.itemListAvatar)
 
         itemViewHolder.viewBinding.itemListDeleteButton.setOnClickListener {
             listNeighborHandler.onDeleteNeighbor(neighbor)
@@ -45,5 +44,4 @@ class ListNeighborsAdapter(
     }
 
     class ViewHolder(var viewBinding: NeighborItemBinding) : RecyclerView.ViewHolder(viewBinding.root)
-
 }

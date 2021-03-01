@@ -1,11 +1,12 @@
 package com.ameliemouillac.gmail.tp02_amelie_mouillac.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.NavigationListener
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.R
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.databinding.ActivityMainBinding
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.di.DI
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.ui.fragments.ListNeighborsFragment
 
 class MainActivity : AppCompatActivity(), NavigationListener {
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity(), NavigationListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        DI.inject(application)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

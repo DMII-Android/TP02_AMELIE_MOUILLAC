@@ -1,5 +1,6 @@
 package com.ameliemouillac.gmail.tp02_amelie_mouillac.ui.fragments
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -65,7 +66,8 @@ class AddNeighbourFragment : Fragment() {
                     false,
                     binding.website.text.toString()
                 )
-                NeighborRepository.getInstance().createNeighbor(neighbor)
+                val application: Application = activity?.application ?: return@submitWith
+                NeighborRepository.getInstance(application).createNeighbor(neighbor)
                 Toast.makeText(context, binding.name.text.toString() + R.string.was_created, Toast.LENGTH_LONG).show()
             }
         }.validate()

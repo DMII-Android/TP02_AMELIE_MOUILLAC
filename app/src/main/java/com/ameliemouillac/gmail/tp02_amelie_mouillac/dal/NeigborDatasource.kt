@@ -1,5 +1,6 @@
 package com.ameliemouillac.gmail.tp02_amelie_mouillac.dal
 
+import androidx.lifecycle.LiveData
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.models.Neighbor
 
 interface NeighborDatasource {
@@ -7,7 +8,7 @@ interface NeighborDatasource {
      * Get all my Neighbors
      * @return [List]
      */
-    val neighbours: List<Neighbor>
+    val neighbours: LiveData<List<Neighbor>>
 
     /**
      * Deletes a neighbor

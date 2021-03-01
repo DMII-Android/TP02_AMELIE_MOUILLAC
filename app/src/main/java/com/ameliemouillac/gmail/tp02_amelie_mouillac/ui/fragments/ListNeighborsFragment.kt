@@ -8,19 +8,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.NavigationListener
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.R
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.adapters.ListNeighborHandler
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.adapters.ListNeighborsAdapter
-import com.ameliemouillac.gmail.tp02_amelie_mouillac.repositories.NeighborRepository
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.databinding.ListNeighborsFragmentBinding
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.di.DI
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.models.Neighbor
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.viewmodels.NeighborViewModel
 
 class ListNeighborsFragment : Fragment(), ListNeighborHandler {
 
     lateinit var binding: ListNeighborsFragmentBinding
+    private lateinit var viewModel: NeighborViewModel
 
     /**
      * Fonction permettant de définir une vue à attacher à un fragment
@@ -39,25 +43,40 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
             )
         )
         addNeighborEvent()
-
+        viewModel = ViewModelProvider(this).get(NeighborViewModel::class.java)
         return binding.root
     }
 
-    fun addNeighborEvent() {
-        binding.addNeighbor.setOnClickListener(
-            View.OnClickListener {
-                (activity as? NavigationListener)?.let {
-                    it.showFragment(AddNeighbourFragment())
-                }
-            }
-        )
+    private fun addNeighborEvent() {
+        binding.addNeighbor.setOnClickListener {
+            (activity as? NavigationListener)?.showFragment(AddNeighbourFragment())
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val neighbors = NeighborRepository.getInstance().getNeighbours()
-        val adapter = ListNeighborsAdapter(neighbors, this)
-        binding.neighborsList.adapter = adapter
+
+        this.setData()
+    }
+
+    private fun setData() {
+        /*
+        val neighbors = DI.repository.getNeighbours()
+        neighbors.observe(
+            viewLifecycleOwner,
+            Observer<List<Neighbor>> { t ->
+                val adapter = ListNeighborsAdapter(t, this@ListNeighborsFragment)
+                binding.neighborsList.adapter = adapter
+            }
+        )*/
+
+        viewModel.neighbors.observe(
+            viewLifecycleOwner,
+            Observer<List<Neighbor>> { t ->
+                val adapter = ListNeighborsAdapter(t, this@ListNeighborsFragment)
+                binding.neighborsList.adapter = adapter
+            }
+        )
     }
 
     override fun onDeleteNeighbor(neighbor: Neighbor) {
@@ -67,7 +86,7 @@ class ListNeighborsFragment : Fragment(), ListNeighborHandler {
             .setPositiveButton(
                 R.string.say_yes,
                 DialogInterface.OnClickListener { dialog, id ->
-                    NeighborRepository.getInstance().deleteNeighbor(neighbor)
+                    DI.repository.deleteNeighbor(neighbor)
                     binding.neighborsList.adapter?.notifyDataSetChanged()
                     Toast.makeText(context, neighbor.name + R.string.was_deleted, Toast.LENGTH_LONG).show()
                 }

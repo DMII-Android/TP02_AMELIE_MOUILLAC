@@ -3,6 +3,8 @@ plugins {
     id 'kotlin-android'
 }
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -51,4 +53,14 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation 'com.afollestad:vvalidator:0.2.2'
+
+    // ROOM
+    def room_version = "2.2.6"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    // VIEW MODEL
+    def lifecycle_version = "2.3.0"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
 }
