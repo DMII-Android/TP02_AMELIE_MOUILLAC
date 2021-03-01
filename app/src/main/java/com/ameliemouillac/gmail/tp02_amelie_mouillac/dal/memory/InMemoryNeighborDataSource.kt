@@ -1,6 +1,6 @@
-package com.ameliemouillac.gmail.tp02_amelie_mouillac.data.datasource
+package com.ameliemouillac.gmail.tp02_amelie_mouillac.dal.memory
 
-import android.util.Log
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.dal.NeighborDatasource
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.models.Neighbor
 
 class InMemoryNeighborDataSource : NeighborDatasource {

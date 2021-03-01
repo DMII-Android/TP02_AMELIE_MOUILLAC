@@ -1,12 +1,12 @@
-package com.ameliemouillac.gmail.tp02_amelie_mouillac
+package com.ameliemouillac.gmail.tp02_amelie_mouillac.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.NavigationListener
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.R
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.databinding.ActivityMainBinding
-import com.ameliemouillac.gmail.tp02_amelie_mouillac.databinding.ListNeighborsFragmentBinding
-import com.ameliemouillac.gmail.tp02_amelie_mouillac.fragments.AddNeighbourFragment
-import com.ameliemouillac.gmail.tp02_amelie_mouillac.fragments.ListNeighborsFragment
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.ui.fragments.ListNeighborsFragment
 
 class MainActivity : AppCompatActivity(), NavigationListener {
 
@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity(), NavigationListener {
 
         showFragment(ListNeighborsFragment())
         updateTitle(R.string.list_fragment_title)
-        TODO("Changer le titre de la toolbar dans les fragments")
     }
 
     fun changeFragment(fragment: Fragment) {

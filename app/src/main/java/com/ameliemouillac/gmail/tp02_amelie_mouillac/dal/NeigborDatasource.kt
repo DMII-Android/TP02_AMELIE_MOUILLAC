@@ -1,4 +1,4 @@
-package com.ameliemouillac.gmail.tp02_amelie_mouillac.data.datasource
+package com.ameliemouillac.gmail.tp02_amelie_mouillac.dal
 
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.models.Neighbor
 

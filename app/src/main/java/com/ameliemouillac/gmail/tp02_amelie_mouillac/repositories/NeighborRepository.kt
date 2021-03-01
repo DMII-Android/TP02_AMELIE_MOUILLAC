@@ -1,7 +1,7 @@
-package com.ameliemouillac.gmail.tp02_amelie_mouillac.data
+package com.ameliemouillac.gmail.tp02_amelie_mouillac.repositories
 
-import com.ameliemouillac.gmail.tp02_amelie_mouillac.data.datasource.InMemoryNeighborDataSource
-import com.ameliemouillac.gmail.tp02_amelie_mouillac.data.datasource.NeighborDatasource
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.dal.memory.InMemoryNeighborDataSource
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.dal.NeighborDatasource
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.models.Neighbor
 
 class NeighborRepository {

@@ -1,4 +1,4 @@
-package com.ameliemouillac.gmail.tp02_amelie_mouillac.fragments
+package com.ameliemouillac.gmail.tp02_amelie_mouillac.ui.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.afollestad.vvalidator.form
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.R
-import com.ameliemouillac.gmail.tp02_amelie_mouillac.data.NeighborRepository
+import com.ameliemouillac.gmail.tp02_amelie_mouillac.repositories.NeighborRepository
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.databinding.AddNeighborBinding
 import com.ameliemouillac.gmail.tp02_amelie_mouillac.models.Neighbor
 import java.util.*
